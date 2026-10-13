@@ -1,0 +1,139 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background: linear-gradient(135deg, #020617, #071b3d, #000000);
+}
+
+.container {
+    width: 100%;
+    max-width: 550px;
+    padding: 40px 25px;
+    text-align: center;
+    background: rgba(9, 25, 52, 0.92);
+    border: 1px solid #168cff;
+    border-radius: 22px;
+    box-shadow: 0 0 30px rgba(22, 140, 255, 0.18);
+}
+
+h1 {
+    margin-bottom: 12px;
+    font-size: clamp(30px, 7vw, 44px);
+    letter-spacing: 2px;
+}
+
+h1 span {
+    color: #168cff;
+}
+
+h2 {
+    color: #8ecaff;
+    letter-spacing: 3px;
+    font-size: 20px;
+}
+
+p {
+    color: #d4e5ff;
+    line-height: 1.6;
+}
+
+form {
+    margin-top: 28px;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 18px;
+    color: #ffffff;
+    background: #071326;
+    border: 1px solid #438bd8;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+input[type="password"]:focus {
+    border-color: #55b1ff;
+    box-shadow: 0 0 12px rgba(22, 140, 255, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    color: #ffffff;
+    background: #0878e8;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005fc4;
+}
+
+.message {
+    margin: 20px 0;
+    padding: 12px;
+    color: #ffffff;
+    background: rgba(255, 80, 80, 0.13);
+    border: 1px solid #ff6262;
+    border-radius: 10px;
+}
+
+.lock-box {
+    margin: 25px auto;
+    padding: 22px;
+    max-width: 350px;
+    border: 1px solid #268cff;
+    border-radius: 16px;
+    background: rgba(0, 30, 65, 0.8);
+}
+
+.lock-box h3 {
+    color: #ff6262;
+    font-size: 18px;
+}
+
+.countdown {
+    margin: 20px 0;
+    color: #ffffff;
+    font-size: clamp(45px, 12vw, 56px);
+    font-weight: bold;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 4px;
+    text-shadow: 0 0 18px #168cff;
+}
+
+#timer-message {
+    color: #c9e4ff;
+}
+
+footer {
+    margin-top: 35px;
+    color: #8fa9c9;
+    font-size: 13px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 18px;
+    }
+
+    h2 {
+        font-size: 17px;
+    }
+}

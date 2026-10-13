@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Granted - DIGIFIESTA 2026</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="college">MVJ DEGREE COLLEGE</p>
+            <h1>DIGIFIESTA <span>2026</span></h1>
+            <h2>PASSWORD CHALLENGE</h2>
+        </header>
+
+        <section class="card success-card">
+            <div class="success-icon">✓</div>
+
+            <p class="granted">ACCESS GRANTED!</p>
+            <h3>Congratulations!</h3>
+
+            <p class="description">
+                You cracked the password successfully.
+            </p>
+
+            <button id="round2Button" type="button">
+                GO TO ROUND 2 →
+            </button>
+
+            <div id="round2Message" class="round2-message" hidden>
+                ROUND 2 QUESTIONS ARE DISPLAYED ON THE BOARD.
+                PLEASE GO TO THE BOARD AND CONTINUE YOUR CHALLENGE!
+            </div>
+        </section>
+
+        <footer>DIGIFIESTA 2026 · MVJ DEGREE COLLEGE</footer>
+    </main>
+
+    <script>
+        document.getElementById("round2Button")
+            .addEventListener("click", function () {
+                document.getElementById("round2Message").hidden = false;
+                this.disabled = true;
+                this.textContent = "ROUND 2 UNLOCKED";
+            });
+    </script>
+</body>
+</html>

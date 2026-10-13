@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIGIFIESTA 2026 | Password Challenge</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>DIGIFIESTA <span>2026</span></h1>
+        <h2>PASSWORD CHALLENGE</h2>
+
+        <p>Enter the correct password to unlock the next round.</p>
+        <p>You have a maximum of 10 attempts.</p>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+
+        {% if locked %}
+            <div class="lock-box">
+                <h3>ACCESS TEMPORARILY LOCKED</h3>
+                <p>Too many incorrect attempts!</p>
+
+                <div id="countdown" class="countdown">
+                    00:{{ "%02d"|format(remaining) }}
+                </div>
+
+                <p id="timer-message">
+                    Please wait until the countdown reaches zero.
+                </p>
+            </div>
+
+            <script>
+                let secondsLeft = Number("{{ remaining }}");
+                const countdown = document.getElementById("countdown");
+                const timerMessage = document.getElementById("timer-message");
+
+                function updateCountdown() {
+                    countdown.textContent =
+                        "00:" + String(secondsLeft).padStart(2, "0");
+                }
+
+                updateCountdown();
+
+                const timer = setInterval(() => {
+                    secondsLeft--;
+
+                    if (secondsLeft <= 0) {
+                        clearInterval(timer);
+                        countdown.textContent = "00:00";
+                        timerMessage.textContent =
+                            "Time is up! You can try again now.";
+
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 700);
+                    } else {
+                        updateCountdown();
+                    }
+                }, 1000);
+            </script>
+
+        {% else %}
+            <form method="POST" id="password-form">
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    autocomplete="off"
+                    required
+                >
+
+                <button type="submit">SUBMIT</button>
+            </form>
+        {% endif %}
+
+        <footer>MVJ Degree College · DIGIFIESTA 2026</footer>
+    </main>
+</body>
+</html>
